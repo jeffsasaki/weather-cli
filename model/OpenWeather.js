@@ -21,9 +21,9 @@ module.exports = class OpenWeather {
         .then(data => {
           console.log(`${new Date().toLocaleTimeString()} - The current temperature in ${this.location} is ${data.main.temp}°F`)
         })
-        .catch(err => console.log(err))
+        .catch(err => console.log(`${new Date().toLocaleTimeString()} - ERROR: Cannot get temperature for ${this.location}`))
     } catch (err) {
-      console.log(err)
+      console.error(err)
     }
   }
 

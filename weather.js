@@ -4,7 +4,8 @@ const locations = [
   '10005',
   'Tokyo',
   'São Paulo',
-  'Pluto'
+  'Pluto',
+  'asioefjaosiefjoiasjef'
 ]
 
 locations.forEach(loc => {
