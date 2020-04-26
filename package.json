@@ -1,0 +1,20 @@
+{
+  "name": "weather-cli",
+  "version": "1.0.0",
+  "description": "A simple weather CLI",
+  "main": "weather.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "node weather.js"
+  },
+  "author": "Jeff Sasaki",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.0"
+  },
+  "devDependencies": {
+    "chai": "^4.2.0",
+    "mocha": "^7.1.1"
+  }
+}
