@@ -3,9 +3,14 @@ const fetch = require('node-fetch')
 const API_KEY = process.env.OPEN_WEATHER_API_KEY
 const API_ROOT = 'https://api.openweathermap.org/data/2.5/weather?units=imperial&appid='
 
-module.exports = class OpenWeather {
+class OpenWeather {
   constructor (location) {
     this.location = location
+    this.temperature = ''
+  }
+
+  setTemperature(temp) {
+    this.temperature = temp;
   }
 
   /**
@@ -15,16 +20,13 @@ module.exports = class OpenWeather {
    */
   getTemperature = () => {
     const url = this.buildURL()
-    try {
-      fetch(url)
-        .then(res => res.json())
-        .then(data => {
-          console.log(`${new Date().toLocaleTimeString()} - The current temperature in ${this.location} is ${data.main.temp}°F`)
-        })
-        .catch(err => console.log(`${new Date().toLocaleTimeString()} - ERROR: Cannot get temperature for ${this.location}`))
-    } catch (err) {
-      console.error(err)
-    }
+    fetch(url)
+      .then(res => res.json())
+      .then(data => {
+        console.log(`${new Date().toLocaleTimeString()} - The current temperature in ${this.location} is ${data.main.temp}°F`)
+        //this.setTemperature(data.main.temp)
+      })
+      .catch(err => console.log(`${new Date().toLocaleTimeString()} - ERROR: Cannot get temperature for ${this.location}`))
   }
 
   /**
@@ -50,3 +52,5 @@ module.exports = class OpenWeather {
     ))
   }
 }
+
+module.exports = OpenWeather
