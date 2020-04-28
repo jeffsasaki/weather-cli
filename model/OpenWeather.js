@@ -9,8 +9,14 @@ class OpenWeather {
     this.temperature = ''
   }
 
-  setTemperature(temp) {
-    this.temperature = temp;
+  /**
+   * Set the temperature for the OpenWeather object
+   * 
+   * @param {string} temp
+   * @returns void
+   */
+  setTemperature = temp => {
+    this.temperature = temp
   }
 
   /**
